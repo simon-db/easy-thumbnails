@@ -436,10 +436,9 @@ def watermark(img, mark, position=(0, 0), opacity=1, scale=1.0, tile=False, **kw
 
 def add_watermark(im, size, crop=False, mark=False, **kwargs):
     if mark:
-        path = getattr(settings, 'MEDIA_ROOT')+mark
-        if os.path.exists(path):
+        if os.path.exists(mark):
             try:
-                wmark = Image.open(path)
+                wmark = Image.open(mark)
                 position=(0,0)
                 opacity=1
                 scale=1.0
